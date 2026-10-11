@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#153d34">
+  <meta name="description" content="Hospital Drone Network — explore real Houston hospital locations on an interactive map with demo medical deliveries and drone fleet coordination.">
+  <title>Hospital Drone Network — Weather-aware Copy</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="Hospital Drone Network home"><span class="brand-symbol" data-icon="drone"></span><span>Hospital Drone<span class="brand-sub">NETWORK</span></span></a>
+      <div class="workspace"><span class="workspace-symbol" data-icon="hospital"></span><div>Houston care network<small>Houston, Texas</small></div><span data-icon="chevron-down"></span></div>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span data-icon="grid"></span>Overview</button>
+        <button class="nav-item" data-view="deliveries"><span data-icon="package"></span>Deliveries<span class="nav-count" id="delivery-count">5</span></button>
+        <button class="nav-item" data-view="network"><span data-icon="network"></span>Hospital network</button>
+        <button class="nav-item" data-view="fleet"><span data-icon="drone"></span>Drone fleet</button>
+        <button class="nav-item" data-view="analytics"><span data-icon="chart"></span>Analytics</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="network-health"><span class="status-dot"></span><strong>Houston demo network</strong><p>Real places · Sample operations</p><div class="health-line"><span></span></div></div>
+        <button class="nav-item" data-action="help"><span data-icon="help"></span>Help & resources<span data-icon="arrow-up-right"></span></button>
+        <button class="nav-item" data-view="settings"><span data-icon="settings"></span>Settings</button>
+        <div class="profile"><span class="avatar">AC</span><div>Alex Carter<small>Network coordinator</small></div><span class="profile-dot"></span></div>
+      </div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" aria-label="Open navigation" data-action="menu"><span data-icon="menu"></span></button>
+        <div class="breadcrumb">Workspace<span>/</span><strong id="breadcrumb-view">Overview</strong></div>
+        <div class="topbar-actions"><span class="demo-pill"><span class="status-dot"></span>Demo network</span><button class="icon-button notification-button" aria-label="Notifications" data-action="notifications"><span data-icon="bell"></span><i></i></button><span class="topbar-divider"></span><span class="avatar small">AC</span></div>
+      </header>
+      <main id="main-content">
+        <div class="page-heading"><div><div class="eyebrow">CONNECTED CARE, IN MOTION</div><h1 id="page-title">Network overview<span class="heading-dot">.</span></h1><p id="page-subtitle">Every flight brings essential care a little closer.</p></div><div class="heading-actions"><button class="button secondary" data-action="export"><span data-icon="download"></span>Export report</button><button class="button primary" data-action="new-delivery"><span data-icon="plus"></span>New delivery</button></div></div>
+        <div id="view-content"></div>
+        <footer class="page-footer"><span><span class="status-dot"></span>Hospital Drone Network <span class="footer-version">/ Weather-aware copy · Houston</span></span><span>Real hospital locations · Demo operations · No hospital affiliation implied</span></footer>
+      </main>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><div><p class="eyebrow" id="modal-eyebrow">DELIVERY COORDINATION</p><h2 id="modal-title">New delivery</h2></div><button class="icon-button" aria-label="Close dialog" data-action="close-modal"><span data-icon="x"></span></button></div><div id="modal-body"></div></section></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script src="vendor/leaflet.js"></script>
+  <script src="houston-map.js"></script>
+  <script src="houston-weather.js"></script>
+  <script src="houston-routing.js"></script>
+  <script src="houston-deliveries.js"></script>
+  <script src="houston-flight-weather.js"></script>
+  <script src="houston-membership.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
